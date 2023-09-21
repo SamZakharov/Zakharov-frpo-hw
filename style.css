@@ -1,0 +1,61 @@
+.main-wraper{
+    width: 50%;
+}
+.d-flex{
+    display: flex;
+}
+
+.categories {
+    width: 33.3%;
+}
+
+.ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    border: 1px solid black;
+    padding: 15px;
+    margin: 15px;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    border: 1px solid black;
+    padding: 15px;
+}
+
+form label {
+    margin-bottom: 30px;
+}
+
+form input, form select, form textarea {
+    margin-left: 20px;
+}
+
+form .submit{
+    margin: 0;
+}
+
+.table-wrapper{
+    display: none;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}

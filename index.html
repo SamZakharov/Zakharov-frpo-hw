@@ -6,8 +6,84 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<main>
 
+    <div class="d-flex main-wraper">
+        <section class="categories">
+            <ul class="ul"></ul>
+        </section>
+        <section class="products">
+            <ul class="ul"></ul>
+        </section>
+        <section id="information" class="information">
+        </section>
+    </div>
+
+    <div class="form-wrapper" id="formWrapper">
+        <form id="registrationForm" onsubmit="submitForm(); return false">
+            <label for="userName">
+                Name:
+                <input type="text" name="userName" id="userName" required/>
+            </label>
+            <label for="userSecondName">
+                Second Name:
+                <input type="text" name="userSecondName" id="userSecondName" required/>
+            </label>
+            <label for="birthDate">
+                Birth Date:
+                <input type="text" name="birthDate" id="birthDate" required/>
+            </label>
+            <label id="gender">
+                Sex:
+                <input type="radio" name="sex" value="Male" required/><span>Male</span>
+                <input type="radio" name="sex" value="Female" required/><span>Female</span>
+            </label>
+            <label for="country">
+                Country:
+                <select name="country" id="country" required>
+                    <option value="Australia">Australia</option>
+                    <option value="Canada">Canada</option>
+                    <option value="India">India</option>
+                    <option value="Ukraine" selected>Ukraine</option>
+                    <option value="USA">USA</option>
+                </select>
+            </label>
+            <label for="adress">
+                Adress:
+                <textarea name="adress" id="adress" required></textarea>
+            </label>
+            <label>
+                Languages:
+                <input type="checkbox" name="language" id="english" value="English" checked
+                       required/><span>English</span>
+                <input type="checkbox" name="language" id="french" value="French"/><span>French</span>
+                <input type="checkbox" name="language" id="ukrainian" value="Ukrainian"/><span>Ukrainian</span>
+                <input type="checkbox" name="language" id="spanish" value="Spanish"/><span>Spanish</span>
+            </label>
+            <input type="submit" name="submit" value="Submit" class="submit"/>
+        </form>
+    </div>
+
+    <div class="table-wrapper" id="tableWrapper">
+        <table id="table">
+
+            <tr>
+                <th>Name</th>
+                <th>Second Name</th>
+                <th>Birth date</th>
+                <th>Gender</th>
+                <th>Country</th>
+                <th>Adress</th>
+                <th>Languages</th>
+            </tr>
+
+        </table>
+    </div>
+
+</main>
+<script src="homework.js"/>
 </body>
 </html>
