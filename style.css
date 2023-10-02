@@ -1,0 +1,28 @@
+
+/*ДЗ 27. Таблиця*/
+table {
+    border-collapse: collapse;
+    width: 300px;
+
+td {
+    background-color: rgba(0, 255, 255, 0.18);
+    border: 2px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+
+/*ДЗ 28. generateList*/
+.style-list, .style-list-item {
+    list-style: none;
+}
+
+.list-wrapper {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 200px;
+    height: 200px;
+    background-color: bisque;
+    color: #261001;
+}
