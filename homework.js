@@ -137,7 +137,9 @@ categories.forEach((category) => {
                     let myOrders = localStorage.getItem('myOrders') ? JSON.parse(localStorage.getItem('myOrders')) : [];
                     myOrders.push(product);
                     localStorage.setItem('myOrders', JSON.stringify(myOrders));
-                    console.log(myOrders);
+                    alert(`Товар ${product.name} добавлен в "My orders"!`);
+
+
 
                 });
 
@@ -148,6 +150,7 @@ categories.forEach((category) => {
 
 
             });
+                                                         // ВОТ ТУТ У МЕНЯ ЗАВТЫК//
 
             showOrders.addEventListener('click', () => {
                 let myOrders = localStorage.getItem('myOrders') ? JSON.parse(localStorage.getItem('myOrders')) : [];
@@ -160,14 +163,49 @@ categories.forEach((category) => {
                         productItem.classList.add('orders-in-cart');
 
 
+                                      // ВОТ В ЭТОМ КУСКЕ КОДА//
+                                   // мне кажется, что я тут намудрил
+                        // productItem.addEventListener('click', () => {
+                        //     console.log(productItem);
+                        //     let ordersInCartInfo = document.createElement('div');
+                        //     ordersInCartInfo.classList.add('orders-in-cart-info');
+                        //     console.log(ordersInCartInfo);
+                        //     myOrders.appendChild(ordersInCartInfo);
+                        //     productItem.innerHTML = '';
+                        //
+                        //     let productName = document.createElement('h2');
+                        //     productName.innerText = `Name: ${product.name}`;
+                        //     productName.classList.add('product-name');
+                        //     console.log(productName);
+                        //
+                        //     let productPrice = document.createElement('h2');
+                        //     productPrice.innerText = `Price: ${product.price}`;
+                        //     productPrice.classList.add('product-price');
+                        //     console.log(productPrice);
+                        //
+                        //     let productImg = document.createElement('img');
+                        //     productImg.src = product.imgSrc;
+                        //     productImg.classList.add('product-photo');
+                        //
+                        //     ordersInCartInfo.appendChild(productName);
+                        //     ordersInCartInfo.appendChild(productPrice);
+                        //     ordersInCartInfo.appendChild(productImg);
+
+                        });
+
+
+
+
+
                         let productImage = document.createElement('img');
                         productImage.src = product.imgSrc;
                         productImage.alt = product.name;
                         productItem.appendChild(productImage);
 
+                        let currentDate = new Date();
 
                         let productInfo = document.createElement('div');
-                        productInfo.innerText = `Name: ${product.name}, Price: ${product.price}`;
+                        productInfo.innerText = `Name: ${product.name}, \nPrice: ${product.price}, \nDate: ${ currentDate }`;
                         productItem.appendChild(productInfo);
 
 
