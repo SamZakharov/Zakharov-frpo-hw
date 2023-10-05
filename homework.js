@@ -106,22 +106,30 @@ function updateMyProductList() {
 
 
             productItem.addEventListener('click', () => {
-                let ordersInCartInfo = document.createElement('div');
-                ordersInCartInfo.classList.add('orders-in-cart-info');
+                //Проверил сколько детей у айтема – если 2(картинка и кнопка), то добавляем блок информации
+                //Если больше – удаляем последнего ребенка, который и есть нашим блоком информации
+                if(productItem.childNodes.length === 2) {
+                    let ordersInCartInfo = document.createElement('div');
+                    ordersInCartInfo.classList.add('orders-in-cart-info');
 
-                let productName = document.createElement('h2');
-                productName.innerText = `Name: ${product.name}`;
-                productName.classList.add('product-name');
-                productItem.appendChild(productName);
+                    let productName = document.createElement('h2');
+                    productName.innerText = `Name: ${product.name}`;
+                    productName.classList.add('product-name');
+                    ordersInCartInfo.appendChild(productName);
 
-                let productPrice = document.createElement('h2');
-                productPrice.innerText = `Price: ${product.price}`;
-                productPrice.classList.add('product-price');
-                productItem.appendChild(productPrice);
+                    let productPrice = document.createElement('h2');
+                    productPrice.innerText = `Price: ${product.price}`;
+                    productPrice.classList.add('product-price');
+                    ordersInCartInfo.appendChild(productPrice);
 
-                let productDate = document.createElement('div');
-                productDate.innerText = `Date: ${new Date()}`;
-                productItem.appendChild(productDate);
+                    let productDate = document.createElement('div');
+                    productDate.innerText = `Date: ${ new Date() }`;
+                    ordersInCartInfo.appendChild(productDate);
+
+                    productItem.appendChild(ordersInCartInfo);
+                } else {
+                    productItem.removeChild(productItem.lastChild);
+                }
             });
 
             productsList.appendChild(productItem);
@@ -191,6 +199,7 @@ categories.forEach((category) => {
                     myOrders.push(product);
                     localStorage.setItem('myOrders', JSON.stringify(myOrders));
                     alert(`Товар ${product.name} добавлен в "My orders"!`);
+
 
 
                 });
