@@ -80,6 +80,59 @@ const productsList = document.querySelector('.products ul');
 const infoBlock = document.getElementById('information');
 const categoryNameBlock = document.getElementById('categoryNameBlock');
 
+function updateMyProductList() {
+    let myOrders = localStorage.getItem('myOrders') ? JSON.parse(localStorage.getItem('myOrders')) : [];
+    productsList.innerHTML = '';
+    infoBlock.innerHTML = '';
+
+    if (myOrders.length > 0) {
+        myOrders.forEach((product) => {
+            let productItem = document.createElement('li');
+            productItem.classList.add('orders-in-cart');
+
+            let productImage = document.createElement('img');
+            productImage.src = product.imgSrc;
+            productImage.alt = product.name;
+            productItem.appendChild(productImage);
+
+            let removeButton = document.createElement('button');
+            removeButton.innerText = 'Remove';
+            removeButton.addEventListener('click', () => {
+                myOrders = myOrders.filter((item) => item.id !== product.id);
+                localStorage.setItem('myOrders', JSON.stringify(myOrders));
+                updateMyProductList();
+            });
+            productItem.appendChild(removeButton);
+
+
+            productItem.addEventListener('click', () => {
+                let ordersInCartInfo = document.createElement('div');
+                ordersInCartInfo.classList.add('orders-in-cart-info');
+
+                let productName = document.createElement('h2');
+                productName.innerText = `Name: ${product.name}`;
+                productName.classList.add('product-name');
+                productItem.appendChild(productName);
+
+                let productPrice = document.createElement('h2');
+                productPrice.innerText = `Price: ${product.price}`;
+                productPrice.classList.add('product-price');
+                productItem.appendChild(productPrice);
+
+                let productDate = document.createElement('div');
+                productDate.innerText = `Date: ${new Date()}`;
+                productItem.appendChild(productDate);
+            });
+
+            productsList.appendChild(productItem);
+        })
+    } else {
+        showOrders.innerHTML = '';
+        alert('No orders yet.');
+    }
+}
+
+showOrders.addEventListener('click', updateMyProductList);
 
 categories.forEach((category) => {
     let categoryItem = document.createElement('li');
@@ -140,7 +193,6 @@ categories.forEach((category) => {
                     alert(`Товар ${product.name} добавлен в "My orders"!`);
 
 
-
                 });
 
                 productItem.appendChild(productName);
@@ -149,83 +201,6 @@ categories.forEach((category) => {
                 productItem.appendChild(buyButton);
 
 
-            });
-                                                         // ВОТ ТУТ У МЕНЯ ЗАВТЫК//
-
-            showOrders.addEventListener('click', () => {
-                let myOrders = localStorage.getItem('myOrders') ? JSON.parse(localStorage.getItem('myOrders')) : [];
-                productsList.innerHTML = '';
-                infoBlock.innerHTML = '';
-
-                if (myOrders.length > 0) {
-                    myOrders.forEach((product) => {
-                        let productItem = document.createElement('li');
-                        productItem.classList.add('orders-in-cart');
-
-
-                                      // ВОТ В ЭТОМ КУСКЕ КОДА//
-                                   // мне кажется, что я тут намудрил
-                        // productItem.addEventListener('click', () => {
-                        //     console.log(productItem);
-                        //     let ordersInCartInfo = document.createElement('div');
-                        //     ordersInCartInfo.classList.add('orders-in-cart-info');
-                        //     console.log(ordersInCartInfo);
-                        //     myOrders.appendChild(ordersInCartInfo);
-                        //     productItem.innerHTML = '';
-                        //
-                        //     let productName = document.createElement('h2');
-                        //     productName.innerText = `Name: ${product.name}`;
-                        //     productName.classList.add('product-name');
-                        //     console.log(productName);
-                        //
-                        //     let productPrice = document.createElement('h2');
-                        //     productPrice.innerText = `Price: ${product.price}`;
-                        //     productPrice.classList.add('product-price');
-                        //     console.log(productPrice);
-                        //
-                        //     let productImg = document.createElement('img');
-                        //     productImg.src = product.imgSrc;
-                        //     productImg.classList.add('product-photo');
-                        //
-                        //     ordersInCartInfo.appendChild(productName);
-                        //     ordersInCartInfo.appendChild(productPrice);
-                        //     ordersInCartInfo.appendChild(productImg);
-
-                        });
-
-
-
-
-
-                        let productImage = document.createElement('img');
-                        productImage.src = product.imgSrc;
-                        productImage.alt = product.name;
-                        productItem.appendChild(productImage);
-
-                        let currentDate = new Date();
-
-                        let productInfo = document.createElement('div');
-                        productInfo.innerText = `Name: ${product.name}, \nPrice: ${product.price}, \nDate: ${ currentDate }`;
-                        productItem.appendChild(productInfo);
-
-
-                        let removeButton = document.createElement('button');
-                        removeButton.innerText = 'Remove';
-                        removeButton.addEventListener('click', () => {
-
-                            myOrders = myOrders.filter((item) => item.id !== product.id);
-                            localStorage.setItem('myOrders', JSON.stringify(myOrders));
-
-                            showOrders.click();
-                        });
-                        productItem.appendChild(removeButton);
-
-                        productsList.appendChild(productItem);
-                    });
-                } else {
-                    showOrders.innerHTML = '';
-                    alert('No orders yet.');
-                }
             });
         });
     });
