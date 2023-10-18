@@ -3,7 +3,7 @@
 }
 
 .bg-img {
-    background-image: url("images/background-image.jpg");
+    /*background-image: url("images/background-image.jpg");*/
 }
 
 .container {
@@ -51,6 +51,40 @@
 
 .categories {
     width: 300px;
+}
+
+.cart-container .cart-info-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-container table {
+    margin-bottom: 20px;
+    color: black;
+}
+
+.cart-container table td {
+    padding: 15px;
+}
+
+.cart-container table tr img {
+    width: 50px;
+    height: 50px;
+}
+
+.infoAboutOrderWrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
 }
 
 .ul-categories, .ul-products {
@@ -126,6 +160,19 @@
     padding-bottom: 15px;
 }
 
+.qweTest .paymentMethodWrap {
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    width: auto;
+    height: auto;
+    background-color: white;
+    border: 1px solid rgb(128, 128, 128);
+    border-radius: 3px;
+    text-align: center;
+    padding: unset;
+}
+
 .orders-in-cart {
     background-color: #dddddd;
     color: brown;
@@ -137,6 +184,30 @@
     height: 400px;
 }
 
+.qweTest {
+    background-color: rgba(221, 221, 221, 0.53);
+    margin-top: 10px;
+    width: 400px;
+    height: 350px;
+}
+
+.information form {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    border: 1px solid black;
+    padding: 15px;
+    justify-content: center;
+}
+
+.qweTest input {
+    color: black
+}
+
+.qweTest select {
+    margin: 0;
+}
+
 .form-wrapper form {
     display: flex;
     flex-direction: column;
@@ -145,19 +216,19 @@
     padding: 15px;
 }
 
-form label {
+.form-wrapper form label {
     margin-bottom: 30px;
 }
 
-form input, form select, form textarea {
+.form-wrapper form input, form select, form textarea {
     margin-left: 20px;
 }
 
-form {
+.form-wrapper form {
     background-color: rgba(221, 221, 221, 0.53);
 }
 
-form .submit {
+.form-wrapper form .submit {
     margin: 0;
 }
 
@@ -165,18 +236,39 @@ form .submit {
     display: none;
 }
 
-table {
+.form-wrapper table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
 
-td, th {
+.form-wrapper td, th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
 }
 
-tr:nth-child(even) {
+.form-wrapper tr:nth-child(even) {
     background-color: #dddddd;
+}
+
+.information .finalOrdersWrap {
+    width: 500px;
+    height: 500px;
+    background-color: black;
+}
+
+#infoAboutOrder {
+    height: 500px;
+}
+
+.user-info-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info-wrapper p{
+    border: 1px solid black;
+    padding: 5px;
+    margin: 5px;
 }
