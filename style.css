@@ -1,0 +1,25 @@
+.main-wrap{
+    display: flex;
+    justify-content: center;
+}
+
+.weather-wrap {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    border: solid 1px cadetblue;
+    background-color: rgba(0, 213, 222, 0.4);
+}
+
+.weather-wrap p {
+    border-bottom: solid 1px black;
+    margin: 5px;
+    text-align: center;
+}
+
+.weather-wrap p:hover{
+    transition: 55ms;
+    scale: 150%;
+}
